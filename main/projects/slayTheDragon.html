@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slay The Dragon</title>
+    <link rel="stylesheet" typ="text/css" href="../style/slayTheDragon.css">
+</head>
+
+<body>
+    <div class="dungeon-navbar">
+        <div class="navbar-brand">Slay The Dragon</div>
+        <div class="navbar-links">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Settings</a>
+                <div class="dropdown-menu">
+                    <a href="">Accessibility</a>
+                    <a href="#">Sound</a>
+                    <a href="#">Controls</a>
+                </div>
+            </div>
+            <a href="https://bit.ly/3BlS71b" target="_blank">Want more?</a>
+        </div>
+    </div>
+    <div id="title-container" class="header">
+        <h1 id="page-title">Slay The Dragon</h1>
+    </div>
+
+    <div class="game-container">
+        <div class="stats">
+            <div class="stat">
+                <img src="../icons/XP.png" class="stat-icon" alt="XP Icon">
+                <p><strong>XP:</strong> <span id="xpText">0</span></p>
+                <div id="xpBar">
+                    <div id="xpFill"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <img src="../icons/HealthIcon.png" class="stat-icon" alt="Health Icon">
+                <p><strong>Health:</strong> <span id="healthText">100</span></p>
+                <div id="healthBar">
+                    <div id="healthFill"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <img src="../icons/money.png" class="stat-icon" alt="Gold Icon">
+                <p><strong>Gold:</strong> <span id="goldText">50</span></p>
+                <div id="goldBar">
+                    <div id="goldFill"></div>
+                </div>
+            </div>
+        </div>
+        <div id="text">Welcome to the game! You are in the town square. What will you do?</div>
+        <!-- Player Stats -->
+
+
+        <!-- Button Options -->
+        <div id="controls" class="button-group">
+            <button id="button1">Go to Store</button>
+            <button id="button2">Go to Cave</button>
+            <button id="button3">Fight Dragon</button>
+        </div>
+
+
+        <!-- Monster Stats (Initially hidden) -->
+        <div id="monsterStats">
+            <p><strong>Monster Name:</strong> <span id="monsterName"></span></p>
+            <p><strong>Monster Health:</strong> <span id="monsterHealth"></span></p>
+        </div>
+    </div>
+
+    <script src="../js_Projects/slayTheDragon.js"></script>
+</body>
+<footer class="dungeon-footer">
+    <p>© 2024 Nati Goral. All rights reserved.</p>
+    <a href="https://www.flaticon.com/free-icons/" title="heart icons">Icons created by Freepik - Flaticon</a>
+</footer>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html id="home" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Console</title>
+    <link rel="stylesheet" type="text/css" href="./style/archiveStyle.css">
+</head>
+
+<body>
+    <div class="left-sidebar">
+        <div id="palindrome-checker">
+            <h2>Palindrome Checker</h2>
+            <div class="input-container">
+                <label for="inputText">Enter text:</label>
+            <input type="text" id="inputText" placeholder="Enter text here">
+            <button id="check-btn" class="button" onclick="inputCheck()">Check</button>
+            <div id="palindromeResult"></div>
+            </div>
+            <script src="./js_Projects/checkPalindrome.js"></script>
+        </div>
+        <div id="binary-to-decimal">
+            <h2>Decimal to Binary Converter</h2>
+            <div class="input-container">
+                <label for="number-input">Enter a decimal number:</label>
+                <input
+                value=""
+                type="number"
+                name="decimal number input"
+                id="number-input"
+                class="number-input"
+                >
+                <button class="convert-btn" id="convert-btn">Convert</button>
+            </div>
+            <output id="result" for="number-input"></output>
+            <div class="animation-container"></div>
+            <script src="./js_Projects/decimalToBinary.js"></script>
+        </div>
+        <div id="decimal-to-roman">
+            <h2>Decimal to Roman Numerals Converter</h2>
+            <div class="input-container">
+                <label for="number">Enter a decimal number:</label>
+                <input
+                value=""
+                type="number"
+                name="decimal number input"
+                id="number2"
+                class="number-input"
+                >
+                <button class="convert-btn" id="convert-btn2">Convert</button>
+            </div>
+            <output id="result2" for="number-input"></output>
+            <div id="animation-container2"></div>
+            <script src="./js_Projects/decimalToRoman.js"></script>
+        </div>
+        <!--Room for more sidebar projects-->
+        </div>
+    <div class="container">
+        <h1>JavaScript Console</h1>
+        <h2>Shit runs here</h2>
+        <div class="console-wrapper">
+            <textarea id="codeInput" placeholder="Enter JavaScript code here..."></textarea>
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="runCode()">Run Code</button>
+            <button class="button" onclick="debugCode()">Debug</button>
+        </div>
+        <div class="output-window">
+            <h2>Output</h2>
+            <div id="consoleOutput"></div>
+        </div>
+        <div class="sidebar">
+            <div id="variable-tracker"></div>
+            
+        </div>
+    </div>
+    <div class="projects-section">
+        <p>Throughout my studies, I have dabbled in all sorts of nonsense!</p>
+        <h2>Explore the projects below</h2>
+        <ul class="project-list">
+            <li><a href="./projects/pyramidGenerator.html">Project 1: Pyramid Generator</a></li>
+            <li><a href="./projects/slayTheDragon.html">Project 2: Slay the Dragon RPG</a></li>
+            <li><a href="./projects/musicPlayer.html">Project 3: Music Player</a></li>
+            <li><a href="./projects/calorieCounter.html">Project 4: Calorie Counter</a></li>
+            <li><a href="./projects/footballTeam.html">Project 5: Football Player Cards</a></li>
+        </ul>
+    </div>
+    <script src="./indexjs/indexScript.js"></script>
+</body>
+<footer class="footer">
+    <p>© 2024 Nati Goral. All rights reserved.</p>
+</footer>
+
+</html>

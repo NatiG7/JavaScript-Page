@@ -1,0 +1,347 @@
+body {
+    background-color: #04043b;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.dungeon-footer {
+    background-color: #1a1a2e;
+    /* Dark dungeon color */
+    color: #f8f9fa;
+    /* Light text color */
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #333;
+    font-family: 'Garamond', serif;
+    /* Optional: Dungeon-like font */
+}
+
+.dungeon-footer p {
+    margin: 0;
+    font-size: 1em;
+    text-shadow: 0 0 5px #ffcc00;
+    /* Glowing text effect */
+}
+
+#text {
+    background-color: #2c2c2c;
+    /* Dark gray to simulate dungeon stone */
+    color: #e0e0e0;
+    /* Light gray for better contrast */
+    padding: 50px;
+    /* Increase padding for more space around text */
+    border-radius: 120px;
+    /* Round corners for a polished look */
+    border: 3px solid #4a4a4a;
+    /* Darker border to simulate dungeon walls */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+    /* Deeper inner shadow for more depth */
+    margin-bottom: 40px;
+    /* More margin for better spacing */
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospaced font for a typewriter effect */
+    font-size: 1.5em;
+    /* Larger font size for readability */
+    width: 100%;
+    /* Full width of its container */
+    max-width: 900px;
+    /* Maximum width to keep it from getting too wide */
+    margin: 30px auto;
+    /* Center align the text area with margins */
+    text-align: left;
+    /* Left-align text for better readability */
+    line-height: 1.8;
+    /* Increase line height for better readability */
+}
+
+#game {
+    max-width: 500px;
+    max-height: 400px;
+    background-color: #ffffff;
+    color: #0a0a23;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+#stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1a1a2e;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent black background */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 2px solid #444;
+    /* Slightly darker border */
+    width: 100%;
+    /* Full width across the game container */
+}
+
+.stat {
+    display: inline-block;
+    padding-right: 10px;
+    text-align: center;
+    color: #f8f9fa;
+    /* Light text color for readability */
+    font-size: 1.1em;
+    font-family: 'Arial', sans-serif;
+    /* Clear, readable font */
+}
+
+.stat-icon {
+    display: block;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    background-size: contain;
+}
+
+#xpBar,
+#healthBar,
+#goldBar {
+    height: 20px;
+    background-color: #4a4a4a;
+    /* Bar background color */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 5px;
+}
+
+#xpFill,
+#healthFill,
+#goldFill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    /* Smooth transition for stat changes */
+}
+
+#xpFill {
+    background-color: #f4e542;
+    /* Bright yellow for XP */
+    width: 10%;
+    /* This will be dynamic */
+}
+
+#healthFill {
+    background-color: #c70d0d;
+    /* Red for health */
+    width: 100%;
+    /* This will be dynamic */
+}
+
+#goldFill {
+    background-color: #ffd700;
+    /* Gold color for currency */
+    width: 50%;
+    /* This will be dynamic */
+}
+
+#monsterStats {
+    display: none;
+    border: 1px solid #0a0a23;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #c70d0d;
+}
+
+
+
+#title-container {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    /* Dark background for dungeon effect */
+    border: 2px solid #666;
+    /* Simulate iron bands */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    width: fit-content;
+    margin-bottom: 30px;
+}
+
+#page-title {
+    color: #f4e542;
+    /* Bright color for contrast */
+    font-family: 'Garamond', serif;
+    /* Serif font for a classic look */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+    /* Shadow for a glowing effect */
+    font-size: 3em;
+    margin: 0;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+    color: #e0e0e0;
+    background-color: #6a3b3a;
+    /* Dark brown for wooden door look */
+    background-image: linear-gradient(#5d2a2a, #6a3b3a);
+    border: 3px solid #3c1c1c;
+    /* Darker brown border to simulate iron bands */
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 5px;
+    text-shadow: 1px 1px 2px #000000;
+    /* Adds a slight shadow to text for better readability */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    /* Inner shadow for depth */
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #5d2a2a;
+    border-color: #3c1c1c;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    /* Darker inner shadow on hover */
+}
+
+button:active {
+    background-color: #4b1d1d;
+    /* Darker brown when clicked */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.9);
+    /* More pronounced inner shadow when clicked */
+}
+
+.dungeon-navbar {
+    background-color: #2b2b2b;
+    color: #f8f9fa;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.dungeon-navbar .navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.dungeon-navbar .navbar-links a {
+    color: #f8f9fa;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.dungeon-navbar .navbar-links a:hover {
+    color: #feac32;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    color: #f8f9fa;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #2b2b2b;
+    min-width: 160px;
+    max-height: 300px;
+    /* Added max-height to prevent overflowing */
+    overflow-y: auto;
+    /* Added scroll for overflowing content */
+    border: 1px solid #444;
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.dropdown-menu a {
+    color: #f8f9fa;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #feac32;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .dungeon-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        max-height: none;
+        /* Removes height restriction on small screens */
+        overflow: visible;
+        box-shadow: none;
+    }
+
+    .dropdown-menu a {
+        padding: 10px;
+        border-top: 1px solid #444;
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Ensure the dropdown still looks good on mobile */
+@media (max-width: 480px) {
+    .dungeon-navbar .navbar-links a {
+        font-size: 0.9em;
+    }
+
+    .dropdown-menu a {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}

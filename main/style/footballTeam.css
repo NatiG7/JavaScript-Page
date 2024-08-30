@@ -1,0 +1,116 @@
+/* Box-sizing and reset styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Color Variables */
+:root {
+  --dark-grey: #0a0a23; /* Dark background color */
+  --light-grey: #f5f6f7; /* Light card background color */
+  --white: #ffffff; /* Text color */
+  --blue: #00A3E0; /* Argentina Blue */
+}
+
+/* General Styles */
+body {
+  background-color: var(--dark-grey);
+  text-align: center;
+  padding: 10px;
+  color: var(--white);
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.title {
+  margin: 1.3rem 0;
+  font-size: 2rem;
+  color: var(--white);
+}
+
+/* Team Stats */
+.team-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 1.3rem;
+  margin: 1.2rem 0;
+  color: var(--white);
+}
+
+/* Options Label */
+.options-label {
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+/* Select Dropdown */
+select[name="players"] {
+  padding: 0.8rem;
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+  background-color: var(--dark-grey);
+  color: var(--white);
+  font-size: 1rem;
+}
+
+/* Cards Container */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Player Card */
+.player-card {
+  background-color: var(--light-grey);
+  padding: 1.3rem;
+  margin: 1.2rem;
+  width: 300px;
+  border-radius: 15px;
+  color: var(--dark-grey);
+}
+
+.player-card h2 {
+  margin-top: 0;
+  color: var(--blue);
+}
+
+/* Footer */
+footer {
+  color: var(--white);
+  padding: 10px;
+  background-color: var(--dark-grey);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-stats {
+    flex-direction: column;
+  }
+}
+.navbar {
+  overflow: auto;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
