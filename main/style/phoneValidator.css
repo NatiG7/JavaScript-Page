@@ -1,0 +1,170 @@
+:root {
+    --background-color: #f0f0f0; /* Light gray background */
+    --phone-background: #ffffff; /* White for phone background */
+    --button-background-check: #4CAF50; /* Soft green for check button */
+    --button-background-clear: #f44336; /* Red for clear button */
+    --button-text-color: #000; /* Dark text on buttons */
+    --home-button-background: #888888; /* Gray for home button */
+    --home-button-border: #444444; /* Darker gray for home button border */
+    --text-area-background: #ffffff; /* White text area */
+    --output-background: #e0e0e0; /* Light gray for output background */
+}
+
+.dark-theme {
+    --background-color: #1b1c1e; /* Darker terminal background for dark theme */
+    --phone-background: #222426; /* Darker grey for the phone body */
+    --button-background-check: #00ff00; /* Bright green for check button in dark mode */
+    --button-background-clear: #ff6347; /* Softer red-orange for clear button */
+    --home-button-background: #888888; /* Dark blue for home button in dark mode */
+    --home-button-border: #aaaaaa; /* Light grey border for dark mode buttons */
+    --text-area-background: #1a1a1a; /* Dark terminal background */
+    --output-background: #2d2d2d; /* Dark grey for output */
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease-in-out;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #000000; /* Black text for light theme */
+}
+
+.phone {
+    border: 1px solid #ddd; /* Light border for light theme */
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Lighter shadow for light theme */
+    width: 350px;
+    padding: 20px;
+    padding-bottom: 80px;
+    background-color: var(--phone-background);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.phone::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 6px;
+    background: #888888; /* Gray accent for light theme */
+    border-radius: 3px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#results-div {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    background: var(--output-background);
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Lighter shadow inside result box */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000; /* Black text in light mode */
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.phone input[type="text"] {
+    width: calc(100% - 22px);
+    height: 8vh;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light border for input field */
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: var(--text-area-background);
+    color: #000000; /* Black text in light mode */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Placeholder text in Light Theme */
+.phone input[type="text"]::placeholder {
+    color: #888; /* Gray for light theme */
+}
+
+/* Placeholder text in Dark Theme */
+.dark-theme .phone input[type="text"]::placeholder {
+    color: #ccc; /* Lighter gray for dark theme */
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.phone button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: var(--button-text-color);
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.phone button.check {
+    background-color: var(--button-background-check);
+}
+
+.phone button.clear {
+    background-color: var(--button-background-clear);
+}
+
+.home-button {
+    width: 60px;
+    height: 60px;
+    background-color: var(--home-button-background);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid var(--home-button-border);
+}
+
+button:focus {
+    outline: none;
+}
+
+#theme-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #888888; /* Light gray for toggle button */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
