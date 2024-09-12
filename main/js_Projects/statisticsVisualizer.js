@@ -10,6 +10,7 @@ function toggleTheme() {
     updateGraph(data); // Use the updated data
 }
 
+// Getting colors for bars
 const getBarColor = () => {
     const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
     return theme === 'light'
@@ -17,6 +18,7 @@ const getBarColor = () => {
         : getComputedStyle(document.documentElement).getPropertyValue('--secondary-color');
 }
 
+// Getting colors for labels
 const getLabelColor = () => {
     const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
     return theme === 'light'

@@ -31,10 +31,10 @@
                 id="number-input"
                 class="number-input"
                 >
-                <button class="convert-btn" id="convert-btn">Convert</button>
+                <button class="convert-btn" id="convert-btn">Convert<br></button>
+                <output id="result" for="number-input"></output>
+                <div class="animation-container"></div>
             </div>
-            <output id="result" for="number-input"></output>
-            <div class="animation-container"></div>
             <script src="./js_Projects/decimalToBinary.js"></script>
         </div>
         <div id="decimal-to-roman">
@@ -45,14 +45,27 @@
                 value=""
                 type="number"
                 name="decimal number input"
-                id="number2"
+                id="number-input2"
                 class="number-input"
                 >
                 <button class="convert-btn" id="convert-btn2">Convert</button>
+                <output id="result2" for="number-input"></output>
+                <div id="animation-container2"></div>
             </div>
-            <output id="result2" for="number-input"></output>
-            <div id="animation-container2"></div>
             <script src="./js_Projects/decimalToRoman.js"></script>
+        </div>
+        <div id="phone-validator">
+            <h2>Phone Number Validator</h2>
+            <div class="input-container">
+                <label for="user-input4">☎</label>
+                <input id="user-input4" type="text" placeholder="Enter Phone Number">
+                <div class="button-container">
+                    <button id="check-btn4" class="button">Check</button>
+                    <button id="clear-btn4" class="button">Clear</button>
+                </div>
+                <div id="results-div4"></div>
+            </div>
+            <script src="./js_Projects/phoneValidator.js"></script>
         </div>
         <!--Room for more sidebar projects-->
         </div>
@@ -84,6 +97,7 @@
             <li><a href="./projects/calorieCounter.html">Project 4: Calorie Counter</a></li>
             <li><a href="./projects/footballTeam.html">Project 5: Football Player Cards</a></li>
             <li><a href="./projects/statisticVisualisation.html">Project 6: Statistics Calculator</a></li>
+            <li><a href="./projects/platformerGame.html">Project 7: Platformer Game</a></li>
         </ul>
     </div>
     <script src="./indexjs/indexScript.js"></script>

@@ -1,5 +1,5 @@
 "use strict";
-//Setting up constants and getting elements
+// Setting up constants and getting elements
 const teamName = document.getElementById("team");
 const typeOfSport = document.getElementById("sport");
 const worldCupYear = document.getElementById("year");
@@ -174,19 +174,19 @@ const myFavoriteFootballTeam = {
     ],
 };
 
-//Making sure the object doesnt change
+// Making sure the object doesnt change
 Object.freeze(myFavoriteFootballTeam);
 const { sport, team, year, players } = myFavoriteFootballTeam;
 const { coachName } = myFavoriteFootballTeam.headCoach;
-//Above is a deconstruction of objects into variables
+// Above is a deconstruction of objects into variables
 
-//Setting variables to their text content for display on the card
+// Setting variables to their text content for display on the card
 typeOfSport.textContent = sport;
 teamName.textContent = team;
 worldCupYear.textContent = year;
 headCoach.textContent = coachName;
 
-//write player data on card according to logic
+// Write player data on card according to logic
 const setPlayerCards = (arr = players) => {
     playerCards.innerHTML += arr
         .map(
@@ -207,6 +207,7 @@ const setPlayerCards = (arr = players) => {
 playersDropdownList.addEventListener("change", (e) => {
     playerCards.innerHTML = "";
 
+    // Filter players based on dropdown selection
     switch (e.target.value) {
         case "nickname":
             setPlayerCards(players.filter((player) => player.nickname !== null));
@@ -229,6 +230,6 @@ playersDropdownList.addEventListener("change", (e) => {
                 players.filter((player) => player.position === "goalkeeper")
             );
             break;
-        default: setPlayerCards();
+        default: setPlayerCards(); // Show all players if no specific filter is selected
     }
 });

@@ -2,6 +2,8 @@ const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 const animationContainer = document.getElementById("animation-container");
+
+// Data for animation
 const animationData = [
     {
         inputVal: 1, // position / index
@@ -13,6 +15,7 @@ const animationData = [
 
 //Logic functions
 
+// Converting decimal to binary
 const decimalToBinary = (input) => {
     if (input === 0 || input === 1) {
         return String(input);
@@ -21,7 +24,7 @@ const decimalToBinary = (input) => {
     }
 };
 
-
+// Validate user input and convert
 const checkUserInput = () => {
     const inputInt = parseInt(numberInput.value);
     if (!numberInput.value || isNaN(inputInt) || inputInt < 0) {
@@ -36,6 +39,7 @@ const checkUserInput = () => {
 
 //Animation function
 
+//Display binary digits
 const showAnimation = (binaryDigits) => {
     result.innerHTML = "";
     let accumulatedDelay = 0;
@@ -43,25 +47,29 @@ const showAnimation = (binaryDigits) => {
         const obj = animationData[index];
         const customDelay = obj ? obj.addElDelay : 300;
         setTimeout(() => {
+            // Display the current digit one by one
             result.innerHTML +=
                 `
                 <span class="animation-frame">${digit}</span>
                 `
         }, accumulatedDelay);
-        accumulatedDelay += customDelay;
+        accumulatedDelay += customDelay; // Increase delay for next digit
     });
 };
 
 // Listeners
 
+// Convert button
 convertBtn.addEventListener("click", checkUserInput);
+
+// Enter key press
 numberInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         checkUserInput();
     };
 });
 
-
+// HTML Template of index.html
 const indexHtml =
 `
     <!DOCTYPE html>

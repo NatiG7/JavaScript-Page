@@ -1,10 +1,13 @@
-const numberInput2 = document.getElementById("number2");
+// HTML Elements
+const numberInput2 = document.getElementById("number-input2");
 const convertBtn2 = document.getElementById("convert-btn2");
 const result2 = document.getElementById("result2");
 
 
 // Number conversion function
 const decimalToRomanNumber = (num) => {
+
+    //Array of roman numeral symbols and their values
     const romanNumerals = [
         { symbol: 'M', value: 1000 },
         { symbol: 'CM', value: 900 },
@@ -21,6 +24,7 @@ const decimalToRomanNumber = (num) => {
         { symbol: 'I', value: 1 }
     ];
     let romanNum = "";
+    // Conversion from decimal to roman
     for (const { symbol, value } of romanNumerals) {
         while (num >= value) {
             romanNum += symbol;
@@ -32,7 +36,11 @@ const decimalToRomanNumber = (num) => {
 
 // Input validation and conversion
 const checkUserInputRoman = () => {
+
+    // Parsing user input
     const inputInt = parseInt(numberInput2.value);
+
+    // Validation
     if (!numberInput2.value || isNaN(inputInt)) {
         return result2.innerHTML = "Please enter a valid number";
     } else if (inputInt < 1) {
@@ -41,17 +49,19 @@ const checkUserInputRoman = () => {
         return result2.innerHTML = "Please enter a number less than or equal to 3999";
     } else {
 
+        // Conversion to Roman and animation
         const romanNumber = decimalToRomanNumber(inputInt);
         const romanDigits = romanNumber;
         showAnimationRoman(romanDigits);
     }
-    numberInput2.value = "";
+    numberInput2.value = ""; // Clear input field
 };
 
 // Animation function
 const showAnimationRoman = (romanNumber) => {
     result2.innerHTML = "";
     let index = 0;
+    // Display Roman numeral one character at a time
     const interval = setInterval(() => {
         if (index < romanNumber.length){
             result2.innerHTML += romanNumber[index];
@@ -63,7 +73,11 @@ const showAnimationRoman = (romanNumber) => {
 };
 
 // Event listeners
+
+// Convert button
 convertBtn2.addEventListener("click", checkUserInputRoman);
+
+// Enter key press
 numberInput2.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         checkUserInputRoman();

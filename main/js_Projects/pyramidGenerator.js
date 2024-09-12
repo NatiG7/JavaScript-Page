@@ -27,6 +27,7 @@ function generatePyramid() {
         }
     }
 
+    // Stack rows
     let result = rows.join("\n");
     document.getElementById("pyramidOutput").textContent = result;
 }
