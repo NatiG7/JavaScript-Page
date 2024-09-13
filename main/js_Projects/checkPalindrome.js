@@ -39,11 +39,19 @@ function checkPalindrome() {
 
 }
 
+function clearFields() {
+    // Clear input and output fields
+    let input = document.getElementById('inputText');
+    let result = document.getElementById('palindromeResult');
+    input.value = '';
+    result.innerText = '';
+}
 // Event Listeners
 
 // Check button
 document.getElementById('check-btn').addEventListener('click', checkPalindrome);
 
+document.getElementById('clear-btn-palindrome').addEventListener('click',clearFields);
 // Enter key press
 document.getElementById('inputText').addEventListener('keydown', (e) => {
     if (e.key === "Enter")

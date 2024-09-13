@@ -95,14 +95,14 @@ body {
 
 /* Canvas styling */
 canvas {
-    display: block;
+    display: hidden;
     background: url('../backgrounds/skylineBackground.png') no-repeat center center;
     background-size: cover;
 }
 
 /* Game elements */
 #canvas {
-    border: 1px solid #5f5f6a; /* Border to outline the game area */
+    border: 1px solid #30303d; /* Border to outline the game area */
 }
 
 /* Player */

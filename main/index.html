@@ -10,16 +10,6 @@
 
 <body>
     <div class="left-sidebar">
-        <div id="palindrome-checker">
-            <h2>Palindrome Checker</h2>
-            <div class="input-container">
-                <label for="inputText">Enter text:</label>
-            <input type="text" id="inputText" placeholder="Enter text here">
-            <button id="check-btn" class="button" onclick="inputCheck()">Check</button>
-            <div id="palindromeResult"></div>
-            </div>
-            <script src="./js_Projects/checkPalindrome.js"></script>
-        </div>
         <div id="binary-to-decimal">
             <h2>Decimal to Binary Converter</h2>
             <div class="input-container">
@@ -32,10 +22,22 @@
                 class="number-input"
                 >
                 <button class="convert-btn" id="convert-btn">Convert<br></button>
-                <output id="result" for="number-input"></output>
-                <div class="animation-container"></div>
+                <div class="animation-container">
+                    <output id="result" for="number-input"></output>
+                </div>
             </div>
             <script src="./js_Projects/decimalToBinary.js"></script>
+        </div>
+        <div id="palindrome-checker">
+            <h2>Palindrome Checker</h2>
+            <div class="input-container">
+                <label for="inputText">Enter text:</label>
+            <input type="text" id="inputText" placeholder="Enter text here">
+            <button id="check-btn" class="button" onclick="inputCheck()">Check</button>
+            <button id="clear-btn-palindrome" class="button">Clear</button>
+            <div id="palindromeResult"></div>
+            </div>
+            <script src="./js_Projects/checkPalindrome.js"></script>
         </div>
         <div id="decimal-to-roman">
             <h2>Decimal to Roman Numerals Converter</h2>
@@ -49,8 +51,9 @@
                 class="number-input"
                 >
                 <button class="convert-btn" id="convert-btn2">Convert</button>
-                <output id="result2" for="number-input"></output>
-                <div id="animation-container2"></div>
+                <div id="animation-container2">
+                    <output id="result2" for="number-input"></output>
+                </div>
             </div>
             <script src="./js_Projects/decimalToRoman.js"></script>
         </div>

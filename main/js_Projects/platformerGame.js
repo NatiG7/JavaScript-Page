@@ -172,7 +172,7 @@ const platforms = platformPositions.map(
 const checkpointPositions = [
     { x: 1170, y: proportionalSize(80), z: 1 },
     { x: 2900, y: proportionalSize(330), z: 2 },
-    { x: 4800, y: proportionalSize(80), z: 3 },
+    { x: 5100, y: proportionalSize(200), z: 3 },
     { x: 3800, y: proportionalSize(250), z: 4 },
     { x: 5400, y: proportionalSize(200), z: 5 }
 ];
@@ -355,6 +355,7 @@ startBtn.addEventListener('click', () => {
     document.querySelector('.start-screen').style.display = 'none';
     document.querySelector('.return-home-container').style.display = 'none'; // Hide return home button
     document.getElementById('canvas').style.display = 'block';
+    document.getElementById('canvas').classList.toggle('visible');
     startGame(); // Your game initialization function
 });
 

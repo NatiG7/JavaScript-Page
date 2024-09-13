@@ -1,5 +1,32 @@
 "use strict";
 
+// Theme toggle
+
+const themeToggle = document.querySelector('#theme-toggle');
+
+const applyTheme = theme => {
+  if (theme === "dark") {
+    document.body.classList.add("dark-theme");
+    document.body.classList.remove("light-theme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.body.classList.add("light-theme");
+    document.body.classList.remove("dark-theme");
+    localStorage.setItem("theme", "light");
+  }
+}
+// Initialize theme based on localStorage
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  applyTheme(savedTheme);
+
+  // Theme toggle event listener
+  themeToggle.addEventListener("click", () => {
+      const currentTheme = localStorage.getItem("theme");
+      applyTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+});
+
 // Player stats and inv
 let xp = 0;
 let health = 100;

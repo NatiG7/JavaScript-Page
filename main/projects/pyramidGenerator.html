@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyramid Generator</title>
     <link rel="stylesheet" type="text/css" href="../style/pyramidGenerator.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/konva@8.3.3/konva.min.js"></script>
 </head>
 
 <body>
@@ -23,6 +23,7 @@
         <div class="controls">
             <button onclick="generatePyramid()">Generate Pyramid</button>
             <button onclick="toggleInverted()">Toggle Inversion</button>
+            <button onclick="clearPyramid()">Clear Pyramid</button>
         </div>
         <div class="pyramid-output" id="pyramidOutput"></div>
     </div>
