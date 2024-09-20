@@ -1,4 +1,5 @@
 /* Global Styles */
+
 body {
     font-family: 'Papyrus', sans-serif; /* Egyptian-style font */
     margin: 0;
@@ -37,6 +38,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Ensure container takes full viewport height */
+    padding-bottom: 50px;
 }
 
 .pyramid-output {
@@ -50,6 +52,22 @@ body {
     background: linear-gradient(to bottom, #87CEEB, #FFD700, #8B4513); /* sorta sunset */
     overflow: auto; /* Enable scrollbars if content exceeds the container size */
     position: relative;
+}
+/* Tree */
+
+
+
+/* Sun Styles */
+.sun {
+    position: absolute;
+    top: 10px; /* Adjust to place it correctly within the pyramidOutput */
+    right: 10px; /* Adjust to place it correctly within the pyramidOutput */
+    width: 50px;
+    height: 50px;
+    background-color: #FFD700; /* Yellow for the sun */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.7); /* Glow effect */
+    z-index: 10; /* Ensure it appears on top of other content */
 }
 
 .controls {
@@ -77,7 +95,7 @@ footer {
     color: #f0e5d8;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     font-size: 14px;
@@ -131,5 +149,48 @@ h1 {
     .controls button {
         padding: 12px 24px;
         font-size: 18px;
+    }
+}
+@media (max-width: 768px) {
+    .pyramid-output {
+        width: 90%;
+        height: 300px; /* Adjusted for smaller screens */
+    }
+
+    .sun {
+        width: 40px;
+        height: 40px;
+        top: 5px; /* Adjust position for smaller screens */
+        right: 5px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .pyramid-output {
+        width: 80%;
+        height: 400px; /* Adjusted for medium screens */
+    }
+
+    .sun {
+        width: 45px;
+        height: 45px;
+        top: 8px; /* Adjust position for tablets */
+        right: 8px;
+    }
+}
+
+/* Desktop Large Screens */
+@media (min-width: 1280px) {
+    .pyramid-output {
+        width: 800px; /* Larger width for large screens */
+        height: 600px;
+    }
+
+    .sun {
+        width: 50px;
+        height: 50px;
+        top: 10px; /* Default position for larger screens */
+        right: 10px;
     }
 }

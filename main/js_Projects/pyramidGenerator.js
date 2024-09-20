@@ -46,11 +46,60 @@ function createBrick(x, y, layer) {
 }
 
 // Generate the pyramid rows
+// function generatePyramid() {
+//     const { stage, layer } = createPyramidStage();  // Create the stage and layer
+//     // To preserve non Konva elements
+//     const rows = [];
+
+//     if (inverted) {
+//         for (let i = count; i >= 1; i--) {
+//             rows.push(i);  // Inverted order
+//         }
+//     } else {
+//         for (let i = 1; i <= count; i++) {
+//             rows.push(i);  // Normal order
+//         }
+//     }
+
+//     let currentRow = 0;  // Track the current row being drawn
+//     const rowDelay = 800;  // Delay between rows in milliseconds
+
+//     function drawRow() {
+//         if (currentRow < rows.length) {
+//             const rowNumber = rows[currentRow];
+//             const rowWidth = rowNumber * (brickWidth + padding);  // Calculate total row width
+
+//             // Position each brick in the center
+//             for (let j = 0; j < rowNumber; j++) {
+//                 const xPosition = (layer.width() - rowWidth) / 2 + j * (brickWidth + padding);  // X-position
+//                 const yPosition = currentRow * (brickHeight + padding) + 180;  // Y-position
+
+//                 // Create and add a brick
+//                 createBrick(xPosition, yPosition, layer);
+//             }
+
+//             layer.batchDraw();
+//             currentRow++;
+//         }
+//     }
+
+//     // Initial call to draw the first row
+//     drawRow();
+
+//     // Use setInterval to call drawRow periodically
+//     const intervalId = setInterval(() => {
+//         if (currentRow < rows.length) {
+//             drawRow();
+//         } else {
+//             clearInterval(intervalId);  // Stop the interval when all rows are drawn
+//         }
+//     }, rowDelay);  // Call drawRow every rowDelay milliseconds
+// }
+
 function generatePyramid() {
-    const { stage, layer } = createPyramidStage();  // Create the stage and layer
-    
+    // Retrieve the stage and layer created only once and reused
+    const { stage, layer } = createPyramidStage();// Create the stage and layer if they don’t exist
     const rows = [];
-    
     if (inverted) {
         for (let i = count; i >= 1; i--) {
             rows.push(i);  // Inverted order
@@ -60,7 +109,6 @@ function generatePyramid() {
             rows.push(i);  // Normal order
         }
     }
-
     let currentRow = 0;  // Track the current row being drawn
     const rowDelay = 800;  // Delay between rows in milliseconds
 
@@ -68,20 +116,28 @@ function generatePyramid() {
         if (currentRow < rows.length) {
             const rowNumber = rows[currentRow];
             const rowWidth = rowNumber * (brickWidth + padding);  // Calculate total row width
-            
+
             // Position each brick in the center
             for (let j = 0; j < rowNumber; j++) {
                 const xPosition = (layer.width() - rowWidth) / 2 + j * (brickWidth + padding);  // X-position
-                const yPosition = currentRow * (brickHeight + padding) + 350;  // Y-position
+                const yPosition = currentRow * (brickHeight + padding) + 150;  // Y-position
 
                 // Create and add a brick
                 createBrick(xPosition, yPosition, layer);
             }
-            
+            sunMaker();
             layer.batchDraw();
             currentRow++;
         }
     }
+
+    function clearPyramid() {
+        // Clear only the Konva layer content
+        layer.destroyChildren();  // Remove all shapes from the layer
+    }
+
+    // Clear previous pyramid before drawing a new one
+    clearPyramid();
 
     // Initial call to draw the first row
     drawRow();
@@ -96,6 +152,16 @@ function generatePyramid() {
     }, rowDelay);  // Call drawRow every rowDelay milliseconds
 }
 
+const sunMaker = () => {
+    const container = document.getElementById('pyramidOutput');
+    // Check if the sun element exists, if not, create it
+    let sunElement = document.querySelector('.sun');
+    if (!sunElement) {
+        sunElement = document.createElement('div');
+        sunElement.className = 'sun';
+        container.appendChild(sunElement);
+    }
+}
 
 // Toggle between normal and inverted pyramids
 function toggleInverted() {
@@ -105,5 +171,11 @@ function toggleInverted() {
 
 const clearPyramid = () => {
     const container = document.getElementById("pyramidOutput");
-    container.innerHTML = '';
+    const canvasChildren = Array.from(container.childNodes);
+    canvasChildren.forEach(child => {
+        if (child.classList.contains('konvajs-content')) {
+            container.removeChild(child);
+        }
+    })
 }
+sunMaker();

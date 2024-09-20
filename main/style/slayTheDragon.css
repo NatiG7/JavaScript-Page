@@ -17,7 +17,7 @@ body {
     /* Light text color */
     text-align: center;
     padding: 20px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     border-top: 2px solid #333;
