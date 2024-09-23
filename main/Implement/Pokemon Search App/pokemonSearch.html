@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeFinder</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>PokeFinder App</h1>
+    </header>
+    <main>
+        <section class="search-section">
+
+            <label for="search-input"><strong>Find Pokémon by Name or ID:</strong></label>
+            <input type="text" id="search-input" required />
+            <button type="submit" id="search-button">Search</button>
+
+        </section>
+
+        <section class="results-section">
+            <div class="poke-info">
+                <h2 id="pokemon-name"></h2>
+                <p><span id="pokemon-id"></span></p>
+                <div id="types"></div>
+            </div>
+
+            <div class="poke-stats">
+                <h3>Stats</h3>
+                <ul>
+                    <li><span id="weight"></span></li>
+                    <li><span id="height"></span></li>
+                    <li>HP: <span id="hp"></span></li>
+                    <li>Attack: <span id="attack"></span></li>
+                    <li>Defense: <span id="defense"></span></li>
+                    <li>Speed: <span id="speed"></span></li>
+                    <li>Special Attack: <span id="special-attack"></span></li>
+                    <li>Special Defense: <span id="special-defense"></span></li>
+                    <li>
+                        <div id="sprite-container"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="poke-image">
+            </div>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
