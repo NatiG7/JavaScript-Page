@@ -1,0 +1,185 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #2c3e50; /* Dark night sky color */
+    overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+/* Return home button */
+.return-home-container {
+    position: fixed;
+    top: 10px; /* Space from the top */
+    right: 10px; /* Space from the right */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.return-home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.return-home-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Start screen */
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    background: linear-gradient(180deg, #4c739a, #4f87bf); /* Skyscraper background gradient */
+    color: #ecf0f1; /* Light text color */
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: #e67e22; /* Orange highlight */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+}
+
+.instructions {
+    margin: 10px 0;
+}
+
+.btn-container {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #e67e22; /* Orange button */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Button shadow */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #d35400; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Checkpoint screen */
+.checkpoint-screen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1abc9c; /* Bright teal */
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Canvas styling */
+canvas {
+    display: hidden;
+    background: url('../backgrounds/skylineBackground.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Game elements */
+#canvas {
+    border: 1px solid #30303d; /* Border to outline the game area */
+}
+
+/* Player */
+.player {
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+}
+
+/* Platforms */
+.platform {
+    background-color: #cba94a;
+    border: 2px solid #1a3a3c;
+}
+
+/* Checkpoints */
+.checkpoint {
+    background: radial-gradient(circle, #f1c40f 0%, #f39c12 100%);
+    border: 2px solid #e67e22;
+}
+
+/* Style adjustments */
+#canvas {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #ecf0f1;
+}
+
+/* Key elements */
+.keys {
+    color: #ecf0f1; /* Light color for key controls text */
+}
+
+.keys p {
+    margin: 5px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem; /* Smaller title for smaller screens */
+    }
+
+    .btn {
+        font-size: 1rem; /* Smaller button text */
+        padding: 8px 16px; /* Adjust button padding */
+    }
+
+    .instructions {
+        font-size: 0.9rem; /* Smaller text for instructions */
+    }
+
+    .return-home-button {
+        font-size: 14px; /* Smaller font size for button */
+        padding: 8px 16px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .start-screen {
+        height: auto; /* Allow height to adjust on small screens */
+    }
+
+    .main-title {
+        font-size: 1.5rem; /* Further reduce title size */
+    }
+
+    .btn {
+        font-size: 0.9rem; /* Further reduce button text size */
+        padding: 6px 12px; /* Further adjust padding */
+    }
+
+    .instructions {
+        font-size: 0.8rem; /* Further reduce text size */
+    }
+
+    .return-home-button {
+        font-size: 12px; /* Further reduce font size */
+        padding: 6px 12px; /* Further adjust padding */
+    }
+}

@@ -41,15 +41,15 @@ function runCode() {
         const assignRegex = /(\w+)\s*=\s*(.+);/g;
         const objectRegex = /(\w+)\.(\w+)\s*=\s*(.+);/g;
         //#Regex
-        const instrumentedCode = code.replace(varRegex, (match, p1, p2) => {
+        const instrumentedCode = code.replace(varRegex, (_match, p1, p2) => {
             return `var ${p1} = ${p2}; variables['${p1}'] = ${p1}; updateVariableTracker();`;
-        }).replace(letRegex, (match, p1, p2) => {
+        }).replace(letRegex, (_match, p1, p2) => {
             return `let ${p1} = ${p2}; variables['${p1}'] = ${p1}; updateVariableTracker();`;
-        }).replace(constRegex, (match, p1, p2) => {
+        }).replace(constRegex, (_match, p1, p2) => {
             return `const ${p1} = ${p2}; variables['${p1}'] = ${p1}; updateVariableTracker();`;
-        }).replace(assignRegex, (match, p1, p2) => {
+        }).replace(assignRegex, (_match, p1, p2) => {
             return `${p1} = ${p2}; variables['${p1}'] = ${p1}; updateVariableTracker();`;
-        }).replace(objectRegex, (match, p1, p2, p3) => {
+        }).replace(objectRegex, (_match, p1, p2, p3) => {
             return `${p1}.${p2} = ${p3}; if (variables['${p1}']) { variables['${p1}'] = ${p1}; } updateVariableTracker();`;
         });
         // Execute the code

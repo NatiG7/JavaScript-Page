@@ -7,6 +7,9 @@
 
 This repository contains a collection of JavaScript projects that showcase various features and functionalities in web development. Each project is organized in its own directory with relevant HTML, CSS, and JavaScript files.
 
+## You can visit a live version of this project here:
+### <a href="https://natig7.github.io/JavaScript-Page/main/index.html" target="_blank">Javascript Projects</a>
+
 ## Table of Contents
 
 - [Usage](#usage)

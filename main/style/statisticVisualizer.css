@@ -48,7 +48,7 @@ nav a:hover {
     color: var(--primary-color);
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     font-size: 14px;
@@ -108,7 +108,6 @@ button:hover {
 .bar-label {
     font-size: 12px;
     font-weight: bold;
-    color: var(--primary-label); /* Use --primary-label for labels */
     pointer-events: none;
     /* Prevents interaction with text */
 }

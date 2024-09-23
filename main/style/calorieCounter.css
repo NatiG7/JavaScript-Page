@@ -302,7 +302,7 @@ select {
     /* Center the text */
     padding: 10px;
     /* Add some padding */
-    position: fixed;
+    position: relative;
     /* Fix the footer at the bottom */
     bottom: 0;
     width: 100%;

@@ -8,8 +8,10 @@ function toggleTheme() {
         ? 'Switch to Dark Theme'
         : 'Switch to Light Theme';
     updateGraph(data); // Use the updated data
+    d3.selectAll(".bar-label").attr("fill",getLabelColor)
 }
 
+// Getting colors for bars
 const getBarColor = () => {
     const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
     return theme === 'light'
@@ -17,6 +19,7 @@ const getBarColor = () => {
         : getComputedStyle(document.documentElement).getPropertyValue('--secondary-color');
 }
 
+// Getting colors for labels
 const getLabelColor = () => {
     const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
     return theme === 'light'
@@ -32,7 +35,15 @@ let data = [];
 const calculate = () => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g);
-    const numbers = array.map(el => Number(el)).filter(el => !isNaN(el));
+    const numbers = array.map(el => {
+        const num = Number(el);
+        return isNaN(num) ? null : num;  // Convert invalid entries to null
+    }).filter(el => el !== null);  // Remove null values
+
+    if (numbers.length === 0) {
+        alert("No valid numbers found.");
+        return;
+    }
 
     const mean = getMean(numbers);
     const median = getMedian(numbers);
@@ -91,7 +102,7 @@ const updateGraph = (data) => {
         console.error("Data is either undefined or empty.");
         return; // Exit the function if data is invalid
     }
-    
+
     // Set up SVG container and scales if not already done
     let svg = d3.select("#graphContainer svg");
     if (svg.empty()) {
@@ -138,12 +149,12 @@ const updateGraph = (data) => {
     bars.exit().remove(); // Remove old bars if necessary
 
     // Update labels
-    const labels = svg.selectAll("bar-label")
+    const labels = svg.selectAll(".bar-label")
         .data(combinedData, d => d.stat);
 
     // Enter and append new labels
     labels.enter().append("text")
-        .attr("id", "bar-label")
+        .attr("class", "bar-label")
         .attr("x", d => x(d.stat) + x.bandwidth() / 2)
         .attr("y", d => Math.max(y(d.value) - 5, margin.top)) // Ensure label is within SVG and has space above
         .attr("text-anchor", "middle")
@@ -192,7 +203,7 @@ const getMode = (array) => {
     const highestFreq = Math.max(...Object.values(counts));
     // If all frequencies are the same, return an empty array
     if (new Set(Object.values(counts)).size === 1) {
-        return [];
+        return highestFreq;
     }
     // Get all modes and sort them
     return Object.keys(counts)
