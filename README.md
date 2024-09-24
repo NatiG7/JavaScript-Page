@@ -13,6 +13,7 @@ This repository contains a collection of JavaScript projects that showcase vario
 ## Table of Contents
 
 - [Usage](#usage)
+
   ```
   Each project in this repository is a standalone example of JavaScript functionality.
   To use or view a specific project:
@@ -21,8 +22,10 @@ This repository contains a collection of JavaScript projects that showcase vario
     Open the corresponding HTML file in a browser, or integrate the JavaScript code into your own projects.
   ```
 - [Examples](#examples)
+
   ### Decimal to Binary
-  ```
+
+  ```javascript
   function decimalToBinary(decimal) {
     let binary = '';
     while (decimal > 0) {
@@ -32,8 +35,10 @@ This repository contains a collection of JavaScript projects that showcase vario
     return binary;
   }
   ```
+
   ### Healthpoint Tracker
-  ```
+
+  ```javascript
   let healthPoints = 100;
 
   function decreaseHealth(damage) {
@@ -48,8 +53,10 @@ This repository contains a collection of JavaScript projects that showcase vario
       return healthPoints;
   }
   ```
+
   ### Experience Calculator
-  ```
+
+  ```javascript
   let xp = 0;
 
   function gainXP(points) {
@@ -62,7 +69,11 @@ This repository contains a collection of JavaScript projects that showcase vario
       return `Congratulations! You've reached level ${level}`;
   }
   ```
+
 - [Contributing](#contributing)
+
   ### Contributions are welcome! Please open an issue or submit a pull request with your improvements.
+
 - [License](#license)
+
   ### This project is licensed under the MIT License - see the LICENSE file for details.
