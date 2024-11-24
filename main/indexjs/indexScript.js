@@ -3,14 +3,18 @@
 let variables = {};
 
 const updateVariableTracker = () => {
-    const trackerDiv = document.getElementById("variable-tracker");
-    trackerDiv.innerHTML = Object.entries(variables)
-        .map(([name, value]) => {
-            let displayValue = typeof value === "object" ? JSON.stringify(value) : String(value);
-            return `<p>${name} : ${displayValue}</p>`;
-        })
-        .join("");
-};
+    const trackerDiv = document.getElementById('variable-tracker');
+    trackerDiv.innerHTML = "";
+    for (let name in variables) {
+        let displayValue;
+        if (typeof variables[name] === 'object') {
+            displayValue = JSON.stringify(variables[name]);
+        } else {
+            displayValue = String(variables[name]);
+        }
+        trackerDiv.innerHTML += `<p>${name} : ${displayValue}</p>`
+    }
+}
 
 //Running code in-page
 function runCode() {
@@ -31,11 +35,11 @@ function runCode() {
             output.innerText += message + '\n';
         };
         //#Regex
-        const varRegex = /var\s+(\w+)\s*=\s*(.+?);/g;
-        const letRegex = /let\s+(\w+)\s*=\s*(.+?);/g;
-        const constRegex = /const\s+(\w+)\s*=\s*(.+?);/g;
-        const assignRegex = /(\w+)\s*=\s*(.+?);/g;
-        const objectRegex = /(\w+(\.\w+)*)\s*=\s*(.+);/g;
+        const varRegex = /var\s+(\w+)\s*=\s*(.+);/g;
+        const letRegex = /let\s+(\w+)\s*=\s*(.+);/g;
+        const constRegex = /const\s+(\w+)\s*=\s*(.+);/g;
+        const assignRegex = /(\w+)\s*=\s*(.+);/g;
+        const objectRegex = /(\w+)\.(\w+)\s*=\s*(.+);/g;
         //#Regex
         const instrumentedCode = code.replace(varRegex, (_match, p1, p2) => {
             return `var ${p1} = ${p2}; variables['${p1}'] = ${p1}; updateVariableTracker();`;
@@ -50,10 +54,9 @@ function runCode() {
         });
         // Execute the code
         eval(instrumentedCode);
+        console.log = originalConsoleLog;
     } catch (e) {
         output.innerText = e.message;
-    } finally {
-        console.log = originalConsoleLog;
     }
 }
 
