@@ -3,18 +3,14 @@
 let variables = {};
 
 const updateVariableTracker = () => {
-    const trackerDiv = document.getElementById('variable-tracker');
-    trackerDiv.innerHTML = "";
-    for (let name in variables) {
-        let displayValue;
-        if (typeof variables[name] === 'object') {
-            displayValue = JSON.stringify(variables[name]);
-        } else {
-            displayValue = String(variables[name]);
-        }
-        trackerDiv.innerHTML += `<p>${name} : ${displayValue}</p>`
-    }
-}
+    const trackerDiv = document.getElementById("variable-tracker");
+    trackerDiv.innerHTML = Object.entries(variables)
+        .map(([name, value]) => {
+            let displayValue = typeof value === "object" ? JSON.stringify(value) : String(value);
+            return `<p>${name} : ${displayValue}</p>`;
+        })
+        .join("");
+};
 
 //Running code in-page
 function runCode() {
