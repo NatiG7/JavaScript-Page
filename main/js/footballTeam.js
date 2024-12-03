@@ -188,6 +188,11 @@ headCoach.textContent = coachName;
 
 // Write player data on card according to logic
 const setPlayerCards = (arr = players) => {
+    /**
+    * Recieves players array, and sets cards according to data.
+    * @param {Array} players - A list of players and their details.
+    * @return {None} Functions returns nothing, edits innerHtml of playerCards.
+    */
     playerCards.innerHTML += arr
         .map(
             ({ name, position, number, isCaptain, nickname }) =>
