@@ -36,8 +36,8 @@ function addEntry() {
         type="number"
         min="0"
         id="${entryDropdown.value}-${entryNumber}-calories"
-        placeholder="Calories"
-    />`;
+        placeholder="Calories"/>
+        `;
     // Insert the new entry fields at the end of the input container
     targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
